@@ -36,32 +36,32 @@ public class AppController {
 	}
 	
 	
-//	@PostMapping("/addUser")
-//	public String addUser(@ModelAttribute UserDto userDto) throws IllegalStateException, IOException {
-//		
-//		MultipartFile file=userDto.getFilename();
-//		
-//		String filePath=env.getProperty("upload.path");
-//		
-//		File uploadPath=new File(filePath);
-//		if(!uploadPath.exists()) {
-//			uploadPath.mkdir();
-//		}
-//		
-//		String filename=System.currentTimeMillis()+file.getOriginalFilename();
-//		File Destination=new File(uploadPath,filename);
-//		
-//		file.transferTo(Destination);
-//		
-//		User user=new User();
-//		user.setUsername(userDto.getUsername());
-//		user.setDescription(userDto.getDescription());
-//		user.setFilename(filename);
-//		
-//		userService.addUser(user);
-//		
-//		return "File uploaded successfully";
-//	}
+	@PostMapping("/addUser")
+	public String addUser(@ModelAttribute UserDto userDto) throws IllegalStateException, IOException {
+		
+		MultipartFile file=userDto.getFilename();
+		
+		String filePath=env.getProperty("upload.path");
+		
+		File uploadPath=new File(filePath);
+		if(!uploadPath.exists()) {
+			uploadPath.mkdir();
+		}
+		
+		String filename=System.currentTimeMillis()+file.getOriginalFilename();
+		File Destination=new File(uploadPath,filename);
+		
+		file.transferTo(Destination);
+		
+		User user=new User();
+		user.setUsername(userDto.getUsername());
+		user.setDescription(userDto.getDescription());
+		user.setFilename(filename);
+		
+		userService.addUser(user);
+		
+		return "File uploaded successfully";
+	}
 	
 	@PostMapping("/multiple")
 	public String multiple(@ModelAttribute UserDto userDto) throws IllegalStateException, IOException {
