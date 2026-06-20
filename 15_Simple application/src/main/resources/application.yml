@@ -1,0 +1,9 @@
+
+spring:
+  security:
+    username: user
+    password: user
+  datasource:
+    url: jdbc:mysql://localhost:3306/itep16
+    username: root
+    password: root
