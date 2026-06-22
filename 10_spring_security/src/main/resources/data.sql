@@ -1,4 +1,4 @@
-INSERT INTO user_role (name)
+    INSERT INTO user_role (name)
 SELECT 'ROLE_ADMIN'
 WHERE NOT EXISTS (
     SELECT 1
